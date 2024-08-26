@@ -1,0 +1,71 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	       Scanner teclado = new Scanner (System.in);
+	       
+	      double quantidade1 = 100;
+	         double quantidade2 = 353;
+	          double quantidade3 = 1000;
+	           double c1;
+	           double c2;
+	           double c3;
+	          double cpa = 0.25;
+	           double d1;
+	           double d2;
+	           double d3;
+	           double cc = 130;
+	           double e1 ; 
+	            double e2 ; 
+	           double e3 ; 
+	           double f1 ;
+	            double f2;
+	             double f3;
+	           
+	   // estoque médio
+	     c1 = 100 / 2 * 25;
+	     c2 = 353 / 2 * 25;
+	    c3 = 1000 / 2 * 25;
+	             
+	  // custo de posse
+	    d1 =  cpa * c1;
+	    d2 =  cpa * c2;
+	    d3 =  cpa * c3;
+	             
+	    // custo de pedido 
+	    e1 = cc * 30;
+	    e2 = cc * 8;
+	    e3 = cc * 3;
+	           
+	   //custo total
+	    f1 = d1 + e1;
+	    f2 = d2 + e2;
+	    f3 = d3 + e3;
+	    
+	    System.out.println("custos medio......\n");
+	    System.out.println("custo medio :\n "  + c1);
+	    System.out.println("custo medio : \n"  + c2);
+	    System.out.println("custo medio :\n "  + c3);
+	    
+	    
+	    System.out.println("custos de posse ......\n");
+	    System.out.println("custo de posse: \n" + d1);
+	     System.out.println("custo de posse: \n" + d2);
+	      System.out.println("custo de posse: \n" + d3);
+	      
+	        System.out.println("custos de pedido ......\n");
+	         System.out.println("custo de pedido: \n" + e1);
+	         System.out.println("custo de pedido:\n" + e2);
+	         System.out.println("custo de pedido:\n" + e3);
+	         
+	          System.out.println("custos total ......\n");
+	            System.out.println("custos total:\n" + f1);
+	            System.out.println("custos total:\n" + f2);
+	            System.out.println("custos total:\n" + f3);
+	            
+	            
+	            
+		
+	}
+}
