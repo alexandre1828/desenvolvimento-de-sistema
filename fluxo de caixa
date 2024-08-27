@@ -1,0 +1,73 @@
+#include <stdio.h>
+
+#define MESES 12
+
+int main() {
+    int i;
+    int vendasPrevistas[MESES], vendasRealizadas[MESES];
+    int aluguelPrevisto[MESES], aluguelRealizado[MESES];
+    int fgtsPrevisto[MESES], fgtsRealizado[MESES];
+    int inssPrevisto[MESES], inssRealizado[MESES];
+    int valorFinalPrevisto[MESES], valorFinalRealizado[MESES];
+    int saldoInicial = 0; // Saldo inicial fixo de zero
+    int saldoFinal[MESES];
+
+    for (i = 0; i < MESES; i++) {
+        printf("Entradas... \n");
+
+        printf("Vendas previstas para o %d° mês: \n", i + 1);
+        scanf("%d", &vendasPrevistas[i]);
+        printf("Vendas realizadas para o %d° mês: \n", i + 1);
+        scanf("%d", &vendasRealizadas[i]);
+
+        printf("Saídas... \n");
+
+        printf("Digite o valor previsto do aluguel para o %d° mês: \n", i + 1);
+        scanf("%d", &aluguelPrevisto[i]);
+        printf("Digite o valor realizado do aluguel para o %d° mês: \n", i + 1);
+        scanf("%d", &aluguelRealizado[i]);
+
+        printf("Digite o valor previsto do FGTS para o %d° mês: \n", i + 1);
+        scanf("%d", &fgtsPrevisto[i]);
+        printf("Digite o valor realizado do FGTS para o %d° mês: \n", i + 1);
+        scanf("%d", &fgtsRealizado[i]);
+
+        printf("Digite o valor previsto do INSS para o %d° mês: \n", i + 1);
+        scanf("%d", &inssPrevisto[i]);
+        printf("Digite o valor realizado do INSS para o %d° mês: \n", i + 1);
+        scanf("%d", &inssRealizado[i]);
+
+        // Calcula o valor final previsto e realizado para o mês atual
+        valorFinalPrevisto[i] = vendasPrevistas[i] - (aluguelPrevisto[i] + fgtsPrevisto[i] + inssPrevisto[i]);
+        valorFinalRealizado[i] = vendasRealizadas[i] - (aluguelRealizado[i] + fgtsRealizado[i] + inssRealizado[i]);
+
+        // Calcula o saldo final para o mês atual
+        saldoFinal[i] = saldoInicial + valorFinalRealizado[i];
+
+        // Atualiza o saldo inicial para o próximo mês
+        saldoInicial = saldoFinal[i];
+
+        printf("Valor final previsto do mês %d: %d \n", i + 1, valorFinalPrevisto[i]);
+        printf("Valor final realizado do mês %d: %d \n", i + 1, valorFinalRealizado[i]);
+        printf("Saldo final do mês %d: %d \n", i + 1, saldoFinal[i]);
+    }
+
+    printf("\nMostrar resultados...\n");
+
+    for (i = 0; i < MESES; i++) {
+        printf("Resultado do %d° mês \n", i + 1);
+        printf("Vendas previstas: %d \n", vendasPrevistas[i]);
+        printf("Vendas realizadas: %d \n", vendasRealizadas[i]);
+        printf("Valor previsto do aluguel: %d \n", aluguelPrevisto[i]);
+        printf("Valor realizado do aluguel: %d \n", aluguelRealizado[i]);
+        printf("Valor previsto do FGTS: %d \n", fgtsPrevisto[i]);
+        printf("Valor realizado do FGTS: %d \n", fgtsRealizado[i]);
+        printf("Valor previsto do INSS: %d \n", inssPrevisto[i]);
+        printf("Valor realizado do INSS: %d \n", inssRealizado[i]);
+        printf("Valor final previsto: %d \n", valorFinalPrevisto[i]);
+        printf("Valor final realizado: %d \n", valorFinalRealizado[i]);
+        printf("Saldo final: %d \n", saldoFinal[i]);
+    }
+
+    return 0;
+}
