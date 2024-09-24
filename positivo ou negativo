@@ -1,0 +1,19 @@
+function PositivoOuNegativo(valor) {
+    let desconto = 0;
+
+    if (valor < 0 ) {
+      return("negativo")
+    }
+      
+      else if (valor > 0 ) {
+           return("positivo") 
+          
+      }
+     else {
+        return("zero")
+    }
+}
+
+console.log(PositivoOuNegativo(-1)); 
+console.log(PositivoOuNegativo(19));  
+console.log(PositivoOuNegativo(0));  
