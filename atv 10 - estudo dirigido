@@ -1,0 +1,18 @@
+let idadesgrupos1 = [25,18,32];
+let idadesgrupos2 = [22,30,28];
+
+
+let idade = idadesgrupos1.concat(idadesgrupos2);
+
+
+idade.forEach(function(valor) {
+    if (valor <= 22) {
+        console.log("Jovem:", valor);
+    } else if (valor <= 30) {
+        console.log("Adulto:", valor);
+    } else if (valor >= 32) {
+        console.log("Experiente:", valor);
+    }
+});
+
+console.log(idade)
