@@ -1,0 +1,6 @@
+let nomes1 = ['joão','maria','lucas','andré'];
+let nomes2 = ['pedro','ana','joana','milena','giulia'];
+
+
+let concatenado = nomes1.concat(nomes2);
+console.log(concatenado);
