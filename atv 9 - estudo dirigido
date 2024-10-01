@@ -1,0 +1,17 @@
+let precos1 = [10,20,30];
+let precos2 = [15,25,35];
+
+
+let concatenado = precos1.concat(precos2);
+
+
+function aplicarAumento(array) {
+    return array.map(preco => preco * 1.10);
+}
+
+
+const precosComAumento = aplicarAumento(concatenado);
+
+
+console.log("Preços originais:",concatenado );
+console.log("Preços com aumento de 10%:", precosComAumento);
