@@ -1,0 +1,23 @@
+let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+
+let pares = numeros.filter(function(numero) {
+    return numero % 2 == 0;
+});
+
+function multiplicacao(array) {
+    
+    let resultado = array.map(numero => numero * 2);
+
+ 
+    let soma = resultado.reduce(function(total, numero) {
+        return total + numero;
+    }, 0);
+
+   
+    console.log("Números pares:", pares);
+    console.log("Números pares dobrados:", resultado);
+    console.log("A soma total é:", soma);
+}
+
+multiplicacao(pares);
