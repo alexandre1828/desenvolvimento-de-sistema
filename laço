@@ -1,0 +1,17 @@
+let numerocorreto = 7;
+ let tentativa;
+ 
+ while(tentativa != numerocorreto) {
+     
+     tentativa = parseInt(prompt("adivinhe o numero: "));
+     
+     if( tentativa != numerocorreto ) {
+         
+         console.log("tente novamente");
+         
+     }
+     
+ }
+ 
+ console.log("voce acertou");
+     
