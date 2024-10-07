@@ -1,0 +1,7 @@
+let frutas = ["maça","banana","laranja", "uva"];
+let  indice = 0;
+
+while (indice < frutas.length) {
+    console.log(frutas[indice]);
+    indice++;
+}
