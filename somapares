@@ -1,0 +1,28 @@
+numero = 0;
+  
+  let impares= 0;
+  let pares = 0;
+
+while(true){
+    
+ numero = parseInt(prompt("digite um numero(digite 0 para sair):"));
+    
+    if(numero === 0){
+        
+        break;
+    }
+    
+    if(numero % 2 === 0 ) {
+        
+       pares += numero;
+    }
+    
+    else{
+       impares++;
+    }
+    
+}
+
+console.log("numeros impares digitados",impares);
+console.log("soma dos pares",pares);
+     
