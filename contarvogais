@@ -1,0 +1,16 @@
+function contarVogais(texto){
+    let contador = 0;
+    texto = texto.toLowerCase();
+    
+    for(let i = 0; i<texto.length;i++) {
+        if('aeiou'.includes(texto[i])){
+            
+            contador++;
+        }
+    }
+    
+    return contador;
+}
+
+let resultadoVogais = contarVogais("ola mundo");
+console.log(resultadoVogais);
