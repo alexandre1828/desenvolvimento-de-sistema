@@ -1,0 +1,17 @@
+function Pessoa(nome,idade) {
+    this.nome = nome;
+    this.idade = idade;
+
+
+
+this.apresentar = function() {
+    console.log(`ola meu nome é ${this.nome} e eu tenho ${this.idade}`);
+};
+
+}
+
+const pessoa1 = new Pessoa('alice',30);
+const pessoa2 = new Pessoa('bob',25);
+
+pessoa1.apresentar();
+pessoa2.apresentar();
