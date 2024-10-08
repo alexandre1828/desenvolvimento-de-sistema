@@ -1,0 +1,16 @@
+const carro = {
+    marca: 'toyota',
+    modelo: 'corolla',
+    ano : 2020,
+    
+    
+    ligar: function(){
+        
+        console.log("o carro esta ligado");
+    } 
+    
+};
+
+console.log(carro.marca);
+console.log(carro.ano);
+carro.ligar();
