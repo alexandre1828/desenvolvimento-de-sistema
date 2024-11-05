@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .task-list {
+            margin-top: 20px;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .task button {
+            background-color: #dc3545;
+            margin-left: 10px;
+        }
+
+        .task button:hover {
+            background-color: #c82333;
+        }
+
+        .task span {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Lista de Tarefas</h1>
+
+    <input id="input01" type="text" placeholder="Adicionar novas tarefas">
+    <button id="btn1">Adicionar Tarefa</button>
+
+    <h2>Tarefas:</h2>
+    <div id="taskList" class="task-list"></div>
+
+    <button id="btn03">Limpar Todas as Tarefas</button>
+
+    <script>
+        const inputField = document.getElementById('input01');
+        const addButton = document.getElementById('btn1');
+        const taskList = document.getElementById('taskList');
+        const clearButton = document.getElementById('btn03');
+
+        // Função para carregar tarefas do localStorage
+        function loadTasks() {
+            const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            storedTasks.forEach(task => {
+                createTaskElement(task.text);
+            });
+        }
+
+        // Função para salvar tarefas no localStorage
+        function saveTasks() {
+            const tasks = [];
+            document.querySelectorAll('.task').forEach(taskElement => {
+                const taskText = taskElement.querySelector('span').textContent;
+                tasks.push({ text: taskText });
+            });
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        // Função para criar a tarefa
+        function createTaskElement(taskText) {
+            const taskElement = document.createElement('div');
+            taskElement.classList.add('task');
+
+            const taskSpan = document.createElement('span');
+            taskSpan.textContent = taskText;
+            taskElement.appendChild(taskSpan);
+
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remover';
+            removeButton.addEventListener('click', function() {
+                taskList.removeChild(taskElement);
+                saveTasks(); // Atualiza as tarefas após remoção
+            });
+            taskElement.appendChild(removeButton);
+
+            taskList.appendChild(taskElement);
+        }
+
+        // Função para adicionar uma tarefa
+        addButton.addEventListener('click', function() {
+            const taskText = inputField.value.trim();
+
+            if (taskText) {
+                createTaskElement(taskText);
+                inputField.value = '';  // Limpa o campo de input após adicionar
+                saveTasks();  // Salva a tarefa no localStorage
+            }
+        });
+
+        // Função para limpar todas as tarefas
+        clearButton.addEventListener('click', function() {
+            taskList.innerHTML = '';  // Limpa todas as tarefas da lista
+            localStorage.removeItem('tasks');  // Remove todas as tarefas do localStorage
+        });
+
+        // Carregar as tarefas do localStorage ao iniciar
+        loadTasks();
+    </script>
+
+</body>
+</html>
