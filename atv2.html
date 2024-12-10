@@ -4,20 +4,215 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        td {
+            background-color: #f9f9f9;
+        }
+        .promotion {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .discount {
+            color: #d9534f;
+            font-weight: bold;
+        }
+
+        .contactForm{
+            width: 50%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contactForm label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .contactForm input, .contactForm textarea, .contactForm button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contactForm button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contactForm button:hover {
+            background-color: #218838;
+        }
+        
+    </style>
 </head>
 <body>
-    <button id="toggle">Mostrar/Ocultar Texto</button>
-    <p id="texto" style="display:none;">Este é um texto oculto!</p>
+    <h1> <a href="aa"></a>Portal de Informações sobre Viagens</h1>
+    <p>Deseja saber mais sobre os destinos? <a href="https://www.google.com" target="_blank">Clique aqui</a></p>  
+    <p>Para reservar passagens, visite nosso parceiro <a href="https://www.google.com" target="_blank">Expedia</a></p>  
+
+    <h2>Calendário de Promoções</h2>
+
+    <div class="container">
+        <h1>Promoções e Descontos</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Mês</th>
+                    <th>Promoção</th>
+                    <th>Desconto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Janeiro</td>
+                    <td class="promotion">Super Promoção de Verão</td>
+                    <td class="discount">Desconto de até 30%</td>
+                </tr>
+                <tr>
+                    <td>Julho</td>
+                    <td class="promotion">Promoção de Férias</td>
+                    <td class="discount">Desconto de até 40%</td>
+                </tr>
+                <tr>
+                    <td>Dezembro</td>
+                    <td class="promotion">Ofertas de Natal</td>
+                    <td class="discount">Desconto de até 50%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Imagens dos Destinos</h2>
+
+    <img src="4-destinos-imperdiveis-para-conhecer-na-tailandia.jpg" alt="Praia Tropical - Tailândia" style="width: 100%; max-width: 600px; margin-bottom: 20px;">
+    <p>Praia Tropical - Tailândia</p>
+
+    <img src="Cancun_Strand_Luftbild_(22143397586).jpg" alt="Praia Cancun - México" style="width: 100%; max-width: 600px; margin-bottom: 20px;">
+    <p>Praia Cancun - México</p>
+
+    <h2>Destinos Populares </h2>
+<dl>
+    <dt>Rio de janeiro</dt>
+    <dd>  cidade famosa por suas praias,como copacabana e Ipanema,e pelo Cristo Redentor</dd>
+
+    <dt>paris</dt>
+    <dd>capital da frança,conhecida pela Torre Eiffel,museus e gastronomia refinada.</dd>
+
+    <dt>Nova iorque</dt>
+
+    <dd>cidade vibrante EUA,famosa por sua vida cultural,Times Square e a Estatua da  liberdade</dd>
+
+</dl>
+
+    <h2>Entre em Contato</h2>
+
+    <div class="contactForm">
+        <form id="contactForm">
+            <label for="name">Seu Nome Completo:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Seu E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <form action="/submit-form" method="post">
+                <label for="gender">destino preferido:</label>
+                <select id="gender" name="gender">
+                    <option value="">Selecione...</option>
+                    <option value="male">cancun</option>
+                    <option value="female">tailandia</option>
+                    
+                </select>
+        
+                <br><br>
+        
+            </form>
+
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="button" onclick="enviar()">Enviar</button>
+
+        </form>
+    </div>
+    <a href="#" >Voltar ao Topo</a>
 
     <script>
-        document.getElementById('toggle').addEventListener('click', function() {
-            const texto = document.getElementById('texto');
-            if (texto.style.display === 'none') {
-                texto.style.display = 'block';
-            } else {
-                texto.style.display = 'none';
+        function enviar() {
+            // Captura os campos do formulário
+            const nameField = document.getElementById("name");
+            const emailField = document.getElementById("email");
+            const destinationField = document.getElementById("gender");
+            const messageField = document.getElementById("message");
+    
+            // Captura os valores do formulário
+            const formData = {
+                name: nameField.value.trim(),
+                email: emailField.value.trim(),
+                destination: destinationField.value,
+                message: messageField.value.trim(),
+            };
+    
+            // Valida os campos obrigatórios
+            if (!formData.name || !formData.email || !formData.destination || !formData.message) {
+                alert("Por favor, preencha todos os campos antes de enviar!");
+                return;
             }
-        });
+    
+            // Armazena os dados no localStorage
+            localStorage.setItem("contactFormData", JSON.stringify(formData));
+    
+            // Exibe uma mensagem de sucesso
+            alert("Os dados foram enviados e armazenados com sucesso!");
+    
+            // Limpa os campos do formulário
+            document.getElementById("contactForm").reset();
+        }
     </script>
+    
+       
+    
+    
 </body>
 </html>
